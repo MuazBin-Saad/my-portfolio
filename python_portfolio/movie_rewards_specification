@@ -1,0 +1,78 @@
+def count_awards(movie_title):
+    
+    movie_title=movie_title.strip()
+    movie_title=movie_title.lower() 
+    
+    m_title=str(movie_title)
+    number_of_awards=0
+    for organization in award_list_options:
+        for movie in organization:
+            number_of_awards+=movie.lower().count(m_title)
+        
+    return number_of_awards
+
+def print_award_winners():
+    print('Please choose one of the following awards lists:')
+    
+    print(award_list_names[1].title())
+    for x in award_list_names:
+        if x != 'oscars':
+            print (x.upper())
+    print('')
+
+    award_choice=input()
+    award_choice=award_choice.strip()
+    award_choice=award_choice.lower()
+    
+    print('--Requested Award Winners--')
+    
+    if award_choice in award_list_names:
+        pos=award_list_names.index(award_choice)
+        for i in award_list_options[pos]:
+            print(i)
+    else:
+        print('Organization not found, check spelling')
+
+
+SAG = ["Everything Everywhere All at Once", "Top Gun: Maverick"]
+    
+oscars = ["Everything Everywhere All at Once", "All Quiet on the Western Front", "Guillermo del Toro's Pinocchio", "Navalny", "All Quiet on the Western Front", 
+              "Everything Everywhere All at Once", "Women Talking", "Avatar: The Way of Water", "All Quiet on the Western Front", "Black Panther: Wakanda Forever",
+              "Everything Everywhere All at Once", "The Whale", "All Quiet on the Western Front", "Top Gun: Maverick"]
+    
+# National Board of Review Awards 2022
+NBR = ["Top Gun: Maverick", "The Banshees of Inisherin", "All Quiet on the Western Front", "Marcel the Shell with Shoes On", "Close", "Sr.", "Women Talking"]
+
+# Independent Spirit Awards 2023
+ISA = ["Everything Everywhere All at Once", "Aftersun", "All The Beauty And The Bloodshed", "Everything Everywhere All at Once", "Joyland", "Tár", "Everything Everywhere All at Once"]
+
+# GLAAD (Gay & Lesbian Alliance Against Defamation) Media Awards 2023 
+GLAAD = ["Bros", "The Inspection", "Fire Island", "Anything's Possible", "Framing Agnes"]
+
+# NAACP (National Association for the Advancement of Colored People) Image Awards 2023
+NAACP = ["Black Panther: Wakanda Forever", "Bantú Mama", "The Inspection", "Wendell & Wild", "Civil"]
+
+
+
+
+
+choice=int(input('\nSelect 1 to search for a specific movie, 2 to print specific award results, Select 0 to end: '))
+while choice!=0:
+    #CONTINUE TO PROMPT UNTIL CHOICE IS 0
+    while choice!=1 and choice!=2 and choice!=0:
+        choice=int(input('Select 1 to search for a specific movie, 2 to print specific award results, Select 0 to end: '))
+        
+        
+    # from awards_data import SAG, oscars, NBR, ISA, GLAAD, NAACP
+    award_list_names = ['sag', 'oscars', 'nbr', 'isa', 'glaad', 'naacp']
+    award_list_options = [SAG, oscars, NBR, ISA, GLAAD, NAACP]
+    
+    if choice==1:
+        movie_title=input('Please enter the movie title you would like to search: ')
+        number_of_awards=count_awards(movie_title)
+        print('--Number of Awards Won--')
+        print(number_of_awards)
+    elif choice==2:
+        print_award_winners()
+    choice=int(input('\nSelect 1 to search for a specific movie, 2 to print specific award results, Select 0 to end: '))
+print('Thank you for using the awards data program')
