@@ -1,5 +1,5 @@
 # spotify_program.py
-# [Your Name], ENDG 233 F23
+# Muaz, ENDG 233 F23
 # A terminal-based application to process and plot data based on given user input and provided data values.
 # You may only import numpy, matplotlib, and math. 
 # No other modules may be imported. Only built-in functions that support compound data structures, user entry, or casting may be used.
